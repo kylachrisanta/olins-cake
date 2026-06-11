@@ -30,14 +30,17 @@ $nama_admin = $_SESSION['nama_admin'];
 <?php include '../bagian/sidebar.php'; ?>
 
 <div class="main-content">
-    <div class="topbar">
-        <div class="topbar-user">
-            <i class="fas fa-user-circle" style="margin-right:5px; color:var(--admin-accent);"></i> 
-            <?= htmlspecialchars($nama_admin) ?>
-        </div>
-    </div>
+    <?php include '../bagian/topbar.php'; ?>
 
     <div class="page-content">
+        <?php 
+        $breadcrumbs = [
+            'Data Kategori' => 'index.php',
+            'Edit Kategori' => ''
+        ];
+        include '../bagian/breadcrumb.php'; 
+        ?>
+        
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 25px;">
             <h1 class="page-title" style="margin-bottom:0;">Edit Kategori</h1>
             <a href="index.php" class="btn-admin" style="width:auto; padding:10px 20px; background:#7f8c8d;"><i class="fas fa-arrow-left"></i> Kembali</a>
