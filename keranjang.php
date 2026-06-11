@@ -10,7 +10,6 @@ if (!isset($_SESSION['id_pelanggan'])) {
 
 $id_pelanggan = $_SESSION['id_pelanggan'];
 
-// Ambil data keranjang
 $stmt = $koneksi->prepare("SELECT k.*, p.nama_produk, p.harga, p.foto_produk FROM keranjang k JOIN produk p ON k.id_produk = p.id_produk WHERE k.id_pelanggan = ? ORDER BY k.id_keranjang DESC");
 $stmt->bind_param("i", $id_pelanggan);
 $stmt->execute();
@@ -28,7 +27,7 @@ while ($row = $res->fetch_assoc()) {
     <title>Keranjang - Olin's Cake</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -55,7 +54,6 @@ while ($row = $res->fetch_assoc()) {
             <?php if (count($keranjang_items) > 0): ?>
             <div class="cart-grid">
                 
-                <!-- Daftar Item Keranjang -->
                 <div class="cart-items">
                     <div class="cart-header">
                         <div style="display:flex; align-items:center; gap:10px;">
@@ -91,7 +89,6 @@ while ($row = $res->fetch_assoc()) {
                     <?php endforeach; ?>
                 </div>
 
-                <!-- Ringkasan -->
                 <div>
                     <div class="cart-summary">
                         <h3 style="margin-bottom: 20px;">Ringkasan Belanja</h3>
@@ -104,7 +101,7 @@ while ($row = $res->fetch_assoc()) {
                             <span id="summary-total-price" style="color: var(--accent-color);">Rp 0</span>
                         </div>
                         
-                        <form action="checkout.php" method="GET" style="margin-top: 25px;">
+                        <form action="pembayaran.php" method="GET" style="margin-top: 25px;">
                             <button type="submit" class="btn-primary" style="width:100%; border:none; padding:15px; font-size:18px; cursor:pointer;" id="btn-checkout">Beli Sekarang</button>
                         </form>
                     </div>
@@ -223,9 +220,9 @@ while ($row = $res->fetch_assoc()) {
             });
         });
 
-        // Initialize summary on load
         if(cartItems.length > 0) updateSummary();
     });
     </script>
 </body>
 </html>
+
