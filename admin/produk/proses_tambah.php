@@ -16,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $masa_simpan = $_POST['masa_simpan'];
     $deskripsi = $_POST['deskripsi'];
 
-    // Handle Upload Foto
     $foto_produk = '';
     if (isset($_FILES['foto_produk']) && $_FILES['foto_produk']['error'] === 0) {
         $file_tmp = $_FILES['foto_produk']['tmp_name'];
@@ -28,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $new_filename = uniqid('prod_') . '.' . $file_ext;
             $upload_dir = '../../assets/images/';
             
-            // Buat direktori jika belum ada
             if (!is_dir($upload_dir)) {
                 mkdir($upload_dir, 0777, true);
             }
