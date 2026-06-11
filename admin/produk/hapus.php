@@ -10,7 +10,6 @@ if (!isset($_SESSION['status_login_admin']) || $_SESSION['status_login_admin'] !
 if (isset($_GET['id'])) {
     $id_produk = intval($_GET['id']);
     
-    // Opsional: Ambil nama file foto dan hapus dari server
     $stmt_sel = $koneksi->prepare("SELECT foto_produk FROM produk WHERE id_produk = ?");
     $stmt_sel->bind_param("i", $id_produk);
     $stmt_sel->execute();
@@ -19,9 +18,6 @@ if (isset($_GET['id'])) {
     if ($res->num_rows > 0) {
         $foto_lama = $res->fetch_assoc()['foto_produk'];
         $upload_dir = '../../assets/images/';
-        // if ($foto_lama && file_exists($upload_dir . $foto_lama) && $foto_lama !== 'product1.png' && $foto_lama !== 'product2.png') {
-        //     unlink($upload_dir . $foto_lama);
-        // }
     }
 
     $stmt = $koneksi->prepare("DELETE FROM produk WHERE id_produk = ?");
