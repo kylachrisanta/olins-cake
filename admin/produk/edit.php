@@ -26,21 +26,23 @@ if ($result->num_rows === 0) {
 $produk = $result->fetch_assoc();
 $nama_admin = $_SESSION['nama_admin'];
 
-// Ambil daftar kategori
 $kategori_res = $koneksi->query("SELECT * FROM kategori_produk");
 ?>
 <?php include '../bagian/header.php'; ?>
 <?php include '../bagian/sidebar.php'; ?>
 
 <div class="main-content">
-    <div class="topbar">
-        <div class="topbar-user">
-            <i class="fas fa-user-circle" style="margin-right:5px; color:var(--admin-accent);"></i> 
-            <?= htmlspecialchars($nama_admin) ?>
-        </div>
-    </div>
+    <?php include '../bagian/topbar.php'; ?>
 
     <div class="page-content">
+        <?php 
+        $breadcrumbs = [
+            'Data Produk' => 'index.php',
+            'Edit Produk' => ''
+        ];
+        include '../bagian/breadcrumb.php'; 
+        ?>
+        
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 25px;">
             <h1 class="page-title" style="margin-bottom:0;">Edit Produk</h1>
             <a href="index.php" class="btn-admin" style="width:auto; padding:10px 20px; background:#7f8c8d;"><i class="fas fa-arrow-left"></i> Kembali</a>
