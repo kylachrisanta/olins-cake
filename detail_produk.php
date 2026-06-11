@@ -28,23 +28,20 @@ $produk = $result->fetch_assoc();
     <title><?= htmlspecialchars($produk['nama_produk']) ?> - Olin's Cake</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Navbar -->
     <?php include 'includes/navbar.php'; ?>
 
-    <!-- Header -->
     <header class="page-header" style="padding-top: 100px; padding-bottom: 40px;">
         <div class="container">
             <h1 style="font-size: 32px;">Detail Produk</h1>
         </div>
     </header>
 
-    <!-- Content -->
     <section class="detail-page">
         <div class="container">
             
@@ -105,7 +102,6 @@ $produk = $result->fetch_assoc();
         </div>
     </section>
 
-    <!-- Footer -->
     <?php include 'includes/footer.php'; ?>
 
     <script>
