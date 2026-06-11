@@ -1,0 +1,243 @@
+/* admin_style.css */
+:root {
+  --admin-primary: #442d1c;
+  --admin-accent: #743014;
+  --admin-secondary: #9D9167;
+  --admin-bg: #FFFFFF;
+  --admin-sidebar: #1E1E2D; /* A bit darker, more modern like mockup */
+  --admin-text: #333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--admin-bg);
+  color: var(--admin-text);
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: var(--admin-sidebar);
+  color: white;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-brand {
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.2);
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 15px 0;
+}
+
+.sidebar-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 25px;
+  color: #c2c7d0;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.sidebar-menu li a:hover, .sidebar-menu li a.active {
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+  border-left: 4px solid var(--admin-accent);
+}
+
+.sidebar-menu li a i {
+  width: 20px;
+  text-align: center;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar */
+.topbar {
+  background: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.topbar-user {
+  font-weight: 600;
+  color: var(--admin-primary);
+}
+
+/* Page Content */
+.page-content {
+  padding: 30px;
+  flex: 1;
+}
+
+.page-title {
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: var(--admin-primary);
+}
+
+/* Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-left: 5px solid var(--admin-accent);
+}
+
+.stat-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(116, 48, 20, 0.1);
+  color: var(--admin-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.stat-info h3 {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.stat-info .h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--admin-primary);
+}
+
+/* Login Admin */
+.login-admin-bg {
+  background: var(--admin-primary);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-admin-card {
+  background: white;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.login-admin-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-admin-header h1 {
+  color: var(--admin-primary);
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.login-admin-header p {
+  color: #777;
+  font-size: 15px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 3px rgba(116, 48, 20, 0.1);
+}
+
+.btn-admin {
+  width: 100%;
+  padding: 12px;
+  background: var(--admin-accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-admin:hover {
+  background: var(--admin-primary);
+}
+
+.alert {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.alert-danger {
+  background: #fdf2f1;
+  color: #e74c3c;
+  border: 1px solid #fadcd9;
+}

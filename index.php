@@ -150,63 +150,9 @@
                 </div>
             </div>
             
-            <div class="help-box">
-                <p>Jika mengalami kesulitan saat memesan, pelanggan dapat langsung menghubungi admin melalui WhatsApp.</p>
-                <a href="https://wa.me/1234567890" target="_blank" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Hubungi Admin
-                </a>
-            </div>
         </div>
     </section>
 
-    <!-- Section Testimoni -->
-    <section id="testimoni" class="testimoni">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2>Apa Kata Pelanggan Kami?</h2>
-            </div>
-            
-            <div class="carousel-container" id="testimoniCarousel">
-                <button class="carousel-btn prev-btn" id="prevTestimoni"><i class="fas fa-chevron-left"></i></button>
-                
-                <div class="carousel-track-container">
-                    <ul class="carousel-track">
-                        <?php 
-                        $testimonies = [
-                            ["name" => "Ibu Ratna", "role" => "Pelanggan Setia", "text" => "Kuenya enak banget, rasanya pas dan tidak terlalu manis. Pengirimannya juga aman, kuenya sampai dengan selamat tanpa hancur. Mantap Olin's Cake!"],
-                            ["name" => "Bapak Budi", "role" => "Pembeli Pertama", "text" => "Pesan untuk acara keluarga dan semuanya suka! Browniesnya beneran fudgy dan nyoklat banget. Pasti bakal pesan lagi di sini."],
-                            ["name" => "Mbak Dina", "role" => "Pecinta Dessert", "text" => "Nastar kejunya lumer di mulut. Packaging sangat eksklusif, cocok juga buat dijadikan hampers. Olin's Cake selalu jadi andalan."]
-                        ];
-                        foreach($testimonies as $index => $testi): ?>
-                        <li class="carousel-slide <?= $index === 0 ? 'current-slide' : '' ?>">
-                            <div class="testimoni-card">
-                                <div class="testimoni-rating">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <p class="ulasan">"<?= $testi['text'] ?>"</p>
-                                <div class="pelanggan-info">
-                                    <img src="assets/images/avatar.png" alt="Pelanggan">
-                                    <div class="pelanggan-nama">
-                                        <h4><?= $testi['name'] ?></h4>
-                                        <span><?= $testi['role'] ?></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-                
-                <button class="carousel-btn next-btn" id="nextTestimoni"><i class="fas fa-chevron-right"></i></button>
-                
-                <div class="carousel-nav">
-                    <?php foreach($testimonies as $index => $testi): ?>
-                    <button class="carousel-indicator <?= $index === 0 ? 'current-indicator' : '' ?>"></button>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <?php include 'includes/footer.php'; ?>

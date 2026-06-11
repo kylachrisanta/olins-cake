@@ -10,7 +10,6 @@
         <li><a href="#beranda">Beranda</a></li>
         <li><a href="#produk">Produk</a></li>
         <li><a href="#cara-pesan">Cara Pesan</a></li>
-        <li><a href="#testimoni">Testimoni</a></li>
       </ul>
     </div>
     <div class="footer-contact">
