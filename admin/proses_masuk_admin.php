@@ -16,12 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (password_verify($password, $admin['kata_sandi'])) {
             if ($admin['status_admin'] === 'aktif') {
-                // Set session admin
                 $_SESSION['status_login_admin'] = true;
                 $_SESSION['id_admin'] = $admin['id_admin'];
                 $_SESSION['nama_admin'] = $admin['nama_admin'];
                 
-                header("Location: dashboard_admin.php");
+                header("Location: dasbor_admin.php");
                 exit;
             } else {
                 $_SESSION['error'] = "Akun admin tidak aktif.";
@@ -37,3 +36,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 header("Location: masuk_admin.php");
 exit;
 ?>
+
