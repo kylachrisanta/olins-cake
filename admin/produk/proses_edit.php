@@ -20,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $foto_produk = $foto_lama;
 
-    // Handle Upload Foto jika ada yang baru
     if (isset($_FILES['foto_produk']) && $_FILES['foto_produk']['error'] === 0) {
         $file_tmp = $_FILES['foto_produk']['tmp_name'];
         $file_name = $_FILES['foto_produk']['name'];
@@ -33,10 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             if (move_uploaded_file($file_tmp, $upload_dir . $new_filename)) {
                 $foto_produk = $new_filename;
-                // Opsional: Hapus file foto lama jika bukan file default
-                // if ($foto_lama && file_exists($upload_dir . $foto_lama) && $foto_lama !== 'product1.png' && $foto_lama !== 'product2.png') {
-                //    unlink($upload_dir . $foto_lama);
-                // }
             } else {
                 $_SESSION['error'] = "Gagal mengunggah foto.";
                 header("Location: edit.php?id=$id_produk");
