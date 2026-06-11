@@ -2,7 +2,6 @@
 session_start();
 require_once 'koneksi.php';
 
-// Cek login
 if (!isset($_SESSION['id_pelanggan'])) {
     if (isset($_POST['is_ajax'])) {
         echo json_encode(['status' => 'error', 'message' => 'Silakan login terlebih dahulu.']);
@@ -22,7 +21,6 @@ if ($action === 'add') {
     
     if ($jumlah < 1) $jumlah = 1;
     
-    // Cek apakah item sudah ada di keranjang
     $stmt_check = $koneksi->prepare("SELECT id_keranjang, jumlah FROM keranjang WHERE id_pelanggan = ? AND id_produk = ?");
     $stmt_check->bind_param("ii", $id_pelanggan, $id_produk);
     $stmt_check->execute();
@@ -47,7 +45,6 @@ if ($action === 'add') {
     exit;
 
 } elseif ($action === 'update_qty') {
-    // Dipanggil via AJAX
     $id_keranjang = intval($_POST['id_keranjang']);
     $jumlah = intval($_POST['jumlah']);
     
@@ -63,7 +60,6 @@ if ($action === 'add') {
     exit;
 
 } elseif ($action === 'update_select') {
-    // Dipanggil via AJAX
     $id_keranjang = intval($_POST['id_keranjang']);
     $dipilih = intval($_POST['dipilih']) ? 1 : 0;
     
