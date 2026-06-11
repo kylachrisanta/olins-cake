@@ -1,0 +1,35 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDEs and Text Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.bak
+
+# Configuration files
+# admin/konfigurasi/koneksi.php # (Uncomment if db credentials should be ignored)
+
+# Log files
+*.log
+
+# Composer
+vendor/
+composer.phar
+
+# Node modules (if any frontend dependencies are used)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Uploaded images (you can customize this based on where user uploads go)
+# assets/images/uploads/
