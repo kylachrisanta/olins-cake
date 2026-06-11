@@ -9,7 +9,6 @@ if (!isset($_SESSION['id_pelanggan'])) {
 
 $id_pelanggan = $_SESSION['id_pelanggan'];
 
-// Ambil daftar pesanan pelanggan
 $stmt = $koneksi->prepare("SELECT * FROM pesanan WHERE id_pelanggan = ? ORDER BY id_pesanan DESC");
 $stmt->bind_param("i", $id_pelanggan);
 $stmt->execute();
@@ -23,7 +22,7 @@ $res_pesanan = $stmt->get_result();
     <title>Pesanan Saya - Olin's Cake</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
