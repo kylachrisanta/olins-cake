@@ -10,7 +10,6 @@ if (!isset($_SESSION['status_login_admin']) || $_SESSION['status_login_admin'] !
 if (isset($_GET['id'])) {
     $id_kategori = intval($_GET['id']);
     
-    // OPSI A: Cek apakah masih ada produk di kategori ini
     $check_stmt = $koneksi->prepare("SELECT COUNT(*) as total FROM produk WHERE id_kategori = ?");
     $check_stmt->bind_param("i", $id_kategori);
     $check_stmt->execute();
