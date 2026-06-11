@@ -26,16 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         if (password_verify($password, $row['kata_sandi'])) {
-            // Login sukses
             $_SESSION['id_pelanggan'] = $row['id_pelanggan'];
             $_SESSION['nama_lengkap'] = $row['nama_lengkap'];
 
-            // Remember Me
             if ($remember) {
-                // Set cookie untuk 30 hari
                 setcookie('remember_username', $nama_pengguna, time() + (86400 * 30), "/");
             } else {
-                // Hapus cookie jika tidak dicentang
                 if (isset($_COOKIE['remember_username'])) {
                     setcookie('remember_username', '', time() - 3600, "/");
                 }
