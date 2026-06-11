@@ -9,14 +9,11 @@ if (!isset($_SESSION['status_login_admin']) || $_SESSION['status_login_admin'] !
 
 $nama_admin = $_SESSION['nama_admin'];
 
-// Ambil data produk beserta kategorinya
 $query = "SELECT p.*, k.nama_kategori FROM produk p JOIN kategori_produk k ON p.id_kategori = k.id_kategori ORDER BY p.id_produk DESC";
 $produk_res = $koneksi->query($query);
 
-// Ambil semua data kategori
 $kategori_res = $koneksi->query("SELECT * FROM kategori_produk ORDER BY id_kategori DESC");
 
-// Fetch kategories again for the select option in add product form
 $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
 
 ?>
@@ -24,49 +21,59 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
 <?php include '../bagian/sidebar.php'; ?>
 
 <style>
-/* Reset and specific page variables */
 .page-content {
-    background-color: var(--admin-bg); /* #FFFFFF */
+    background-color: var(--admin-bg); 
     padding: 30px;
     flex: 1;
 }
 
-/* Custom Tabs Styling */
+
+.custom-tabs-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+}
 .custom-tabs {
     display: flex;
-    border-bottom: 2px solid #e5e7eb;
-    margin-bottom: 30px;
-    gap: 20px;
+    width: 100%;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: #f4f4f5;
+    padding: 4px;
+    gap: 4px;
 }
 .custom-tab-btn {
-    padding: 10px 15px;
-    background: none;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    color: #6b7280;
-    cursor: pointer;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s ease;
-    display: flex;
+    flex: 1;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    padding: 6px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #71717a;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
     gap: 8px;
-}
-.custom-tab-btn i {
-    color: var(--admin-secondary);
+    height: 100%;
 }
 .custom-tab-btn:hover {
-    color: var(--admin-primary);
+    color: #09090b;
 }
 .custom-tab-btn.active {
+    background-color: white;
     color: var(--admin-primary);
-    border-bottom-color: var(--admin-primary);
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-.custom-tab-btn.active i {
-    color: var(--admin-primary);
+.custom-tab-btn i {
+    font-size: 14px;
 }
 
-/* Tab Pane Styling */
 .tab-pane {
     display: none;
     animation: fadeIn 0.3s ease;
@@ -79,7 +86,6 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Modern Card Styling */
 .modern-card {
     background: #FFFFFF;
     border-radius: 12px;
@@ -89,7 +95,6 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
     border: 1px solid #e5e7eb;
 }
 
-/* Card Header */
 .modern-card-header {
     display: flex;
     align-items: center;
@@ -114,7 +119,6 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
     margin: 0;
 }
 
-/* Forms */
 .form-group label {
     font-size: 14px;
     font-weight: 500;
@@ -181,7 +185,6 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
     background-color: var(--admin-primary);
 }
 
-/* Table specific styling */
 .table-toolbar {
     display: flex;
     justify-content: space-between;
@@ -234,7 +237,7 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
 }
 
 .badge-kategori {
-    background-color: #f3f0e7; /* Light Olive Harvest */
+    background-color: #f3f0e7; 
     color: var(--admin-primary);
     padding: 4px 12px;
     border-radius: 9999px;
@@ -296,43 +299,32 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
 </style>
 
 <div class="main-content">
-    <div class="topbar">
-        <div class="topbar-user">
-            <i class="fas fa-user-circle" style="margin-right:5px; color:var(--admin-secondary);"></i> 
-            <?= htmlspecialchars($nama_admin) ?>
-        </div>
-    </div>
+    <?php 
+    $breadcrumbs = [
+        'Data Produk' => ''
+    ];
+    include '../bagian/topbar.php'; 
+    ?>
 
     <div class="page-content">
-        <?php if (isset($_SESSION['success'])): ?>
-            <div class="alert alert-success" style="background:#dcfce7; color:#166534; border:1px solid #bbf7d0;">
-                <i class="fas fa-check-circle"></i> <?= $_SESSION['success'] ?>
-            </div>
-            <?php unset($_SESSION['success']); ?>
-        <?php endif; ?>
-
-        <?php if (isset($_SESSION['error'])): ?>
-            <div class="alert alert-danger" style="background:#fee2e2; color:#991b1b; border:1px solid #fecaca;">
-                <i class="fas fa-exclamation-circle"></i> <?= $_SESSION['error'] ?>
-            </div>
-            <?php unset($_SESSION['error']); ?>
-        <?php endif; ?>
-
+        <?php include '../bagian/breadcrumb.php'; ?>
+        
         <div style="margin-bottom: 30px;">
             <h1 style="font-size: 24px; font-weight: 700; color: #111827; margin-bottom: 8px;">Kelola Produk & Kategori</h1>
             <p style="color: #6b7280; font-size: 15px; margin: 0;">Kelola data produk dan kategori produk untuk menu Olin's Cake.</p>
         </div>
 
-        <div class="custom-tabs">
-            <button class="custom-tab-btn active" onclick="openTab(event, 'tab-produk')" id="btn-tab-produk">
-                <i class="fas fa-box"></i> Kelola Produk
-            </button>
-            <button class="custom-tab-btn" onclick="openTab(event, 'tab-kategori')" id="btn-tab-kategori">
-                <i class="fas fa-tags"></i> Kelola Kategori
-            </button>
+        <div class="custom-tabs-container">
+            <div class="custom-tabs">
+                <button class="custom-tab-btn active" onclick="openTab(event, 'tab-produk')" id="btn-tab-produk">
+                    <i class="fas fa-box"></i> Kelola Produk
+                </button>
+                <button class="custom-tab-btn" onclick="openTab(event, 'tab-kategori')" id="btn-tab-kategori">
+                    <i class="fas fa-tags"></i> Kelola Kategori
+                </button>
+            </div>
         </div>
 
-        <!-- TAB PRODUK -->
         <div id="tab-produk" class="tab-pane active">
             
             <div class="modern-card">
@@ -447,7 +439,7 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
                                     <td><?= htmlspecialchars($row['masa_simpan']) ?></td>
                                     <td style="text-align:center;">
                                         <a href="edit.php?id=<?= $row['id_produk'] ?>" class="btn-action btn-edit" title="Edit"><i class="fas fa-edit"></i></a>
-                                        <a href="hapus.php?id=<?= $row['id_produk'] ?>" class="btn-action btn-delete" title="Hapus" onclick="return confirm('Yakin ingin menghapus produk ini?');"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="hapus.php?id=<?= $row['id_produk'] ?>" class="btn-action btn-delete" title="Hapus" data-text="Produk ini akan dihapus secara permanen!"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                 <?php endwhile; ?>
@@ -470,7 +462,6 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
 
         </div>
 
-        <!-- TAB KATEGORI -->
         <div id="tab-kategori" class="tab-pane">
             
             <div class="modern-card" style="max-width: 600px;">
@@ -524,7 +515,7 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
                                     <td style="font-weight:500; color:#111827;"><span class="badge-kategori"><?= htmlspecialchars($row['nama_kategori']) ?></span></td>
                                     <td style="text-align:center;">
                                         <a href="../kategori/edit.php?id=<?= $row['id_kategori'] ?>" class="btn-action btn-edit" title="Edit"><i class="fas fa-edit"></i></a>
-                                        <a href="../kategori/proses_hapus.php?id=<?= $row['id_kategori'] ?>" class="btn-action btn-delete" title="Hapus" onclick="return confirm('Yakin ingin menghapus kategori ini?');"><i class="fas fa-trash-alt"></i></a>
+                                        <a href="../kategori/proses_hapus.php?id=<?= $row['id_kategori'] ?>" class="btn-action btn-delete" title="Hapus" data-text="Kategori ini akan dihapus secara permanen!"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                                 <?php endwhile; ?>
@@ -554,29 +545,24 @@ $kategori_options_res = $koneksi->query("SELECT * FROM kategori_produk");
 function openTab(evt, tabId) {
     var i, tabcontent, tablinks;
     
-    // Sembunyikan semua tab content
     tabcontent = document.getElementsByClassName("tab-pane");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].classList.remove("active");
     }
     
-    // Hapus class active dari semua tombol tab
     tablinks = document.getElementsByClassName("custom-tab-btn");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].classList.remove("active");
     }
     
-    // Tampilkan tab yang dipilih dan tambahkan class active pada tombol
     document.getElementById(tabId).classList.add("active");
     evt.currentTarget.classList.add("active");
     
-    // Update URL agar ketika direfresh tetap berada di tab yang sama
     const url = new URL(window.location);
     url.searchParams.set('tab', tabId.replace('tab-', ''));
     window.history.pushState({}, '', url);
 }
 
-// Simple filter table function
 function filterTable(inputId, tableId) {
     var input, filter, table, tr, td, i, j, txtValue, found;
     input = document.getElementById(inputId);
@@ -605,7 +591,6 @@ function filterTable(inputId, tableId) {
         }
     }
     
-    // Update info text
     var infoId = tableId.replace('table-', '') + '-info';
     var infoEl = document.getElementById(infoId);
     if(infoEl) {
@@ -617,7 +602,6 @@ function filterTable(inputId, tableId) {
     }
 }
 
-// Cek URL param saat halaman dimuat
 document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const tab = urlParams.get('tab');
@@ -627,7 +611,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if(btn) btn.click();
     }
     
-    // Init info text
     var trProd = document.getElementById('table-produk').getElementsByClassName("data-row");
     if(document.getElementById('produk-info')) document.getElementById('produk-info').innerText = "Menampilkan 1 sampai " + trProd.length + " dari " + trProd.length + " data";
     
