@@ -9,28 +9,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $konfirmasi_password = $_POST['konfirmasi_password'];
 
-    // Validasi input kosong
     if (empty($nama_lengkap) || empty($nama_pengguna) || empty($nomor_whatsapp) || empty($password) || empty($konfirmasi_password)) {
         $_SESSION['error'] = "Semua field wajib diisi.";
         header("Location: daftar.php");
         exit;
     }
 
-    // Validasi nama pengguna (tanpa spasi)
     if (preg_match('/\s/', $nama_pengguna)) {
         $_SESSION['error'] = "Nama pengguna tidak boleh mengandung spasi.";
         header("Location: daftar.php");
         exit;
     }
 
-    // Validasi nomor WA
     if (!preg_match('/^[0-9]{9,15}$/', $nomor_whatsapp)) {
         $_SESSION['error'] = "Nomor WhatsApp tidak valid. Gunakan angka (9-15 digit).";
         header("Location: daftar.php");
         exit;
     }
 
-    // Validasi password
     if (strlen($password) < 8) {
         $_SESSION['error'] = "Password minimal 8 karakter.";
         header("Location: daftar.php");
@@ -43,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 
-    // Validasi nama pengguna unik
     $stmt_check = $koneksi->prepare("SELECT id_pelanggan FROM pelanggan WHERE nama_pengguna = ?");
     $stmt_check->bind_param("s", $nama_pengguna);
     $stmt_check->execute();
@@ -57,10 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     $stmt_check->close();
 
-    // Enkripsi password
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    // Insert ke database
     $stmt_insert = $koneksi->prepare("INSERT INTO pelanggan (nama_lengkap, nama_pengguna, nomor_whatsapp, kata_sandi) VALUES (?, ?, ?, ?)");
     $stmt_insert->bind_param("ssss", $nama_lengkap, $nama_pengguna, $nomor_whatsapp, $password_hash);
     
