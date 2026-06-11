@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
 
@@ -9,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close mobile menu when a link is clicked
     const links = document.querySelectorAll('.nav-links a');
     links.forEach(link => {
         link.addEventListener('click', () => {
@@ -19,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -30,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.querySelector(targetId);
             
             if(targetElement) {
-                // Account for fixed navbar
                 const headerOffset = 80;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
