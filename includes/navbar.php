@@ -3,79 +3,110 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 $base_url = '/olinscake/';
+$current_page = basename($_SERVER['SCRIPT_NAME']);
 ?>
-<nav class="navbar">
-  <div class="navbar-container">
-    <div class="nav-brand">
-      <a href="<?= $base_url ?>index.php#beranda" class="brand">Olin's Cake</a>
-    </div>
-    
-    <div class="nav-menu">
-      <ul class="nav-links" id="nav-links">
-        <li class="dropdown" id="berandaDropdownContainer">
-          <a href="#" class="dropdown-toggle" id="berandaDropdown" style="display: flex; align-items: center;">
-            Beranda <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 5px;"></i>
-          </a>
-          <div class="dropdown-menu" id="berandaMenu" style="top: 150%;">
-            <a href="<?= $base_url ?>index.php#tentang-kami" class="dropdown-item">Tentang Kami</a>
-            <a href="<?= $base_url ?>index.php#produk" class="dropdown-item">Produk Pilihan</a>
-            <a href="<?= $base_url ?>index.php#cara-pesan" class="dropdown-item">Cara Pesan</a>
-          </div>
-        </li>
-        <li><a href="<?= $base_url ?>produk.php">Produk</a></li>
-        <?php if (isset($_SESSION['id_pelanggan'])): ?>
-        <li><a href="<?= $base_url ?>keranjang.php">Keranjang</a></li>
-        <li><a href="<?= $base_url ?>pesanan_saya.php">Pesanan Saya</a></li>
-        <?php endif; ?>
-      </ul>
-    </div>
+<?php include_once 'header.php'; ?>
 
-    <div class="nav-actions">
-      <?php if (isset($_SESSION['id_pelanggan'])): ?>
-        <span class="user-greeting" style="font-weight: 600; color: var(--primary-color);">
-          Halo, <?= htmlspecialchars(explode(' ', $_SESSION['nama_lengkap'])[0]) ?>
-        </span>
-        <a href="<?= $base_url ?>auth/keluar.php" class="btn-outline text-danger" style="border-color: #e74c3c;">Logout</a>
-      <?php else: ?>
-        <a href="<?= $base_url ?>auth/masuk.php" class="btn-outline">Masuk</a>
-        <a href="<?= $base_url ?>auth/daftar.php" class="btn-primary">Daftar</a>
-      <?php endif; ?>
-      
-      <div class="menu-toggle" id="mobile-menu">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
-  </div>
-</nav>
+<div class="bg-primary text-on-primary py-2 px-4 text-center font-label-bold text-label-bold w-full z-50 relative">
+    Dipanggang segar setiap pagi. Nikmati kelezatan kue artisan khas Olin's Cake untuk menyempurnakan hari Anda!
+</div>
+<nav class="bg-surface dark:bg-surface-dim docked full-width top-0 sticky z-40 border-b border-outline-variant transition-all duration-300 backdrop-blur-md bg-opacity-90">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto h-20">
+<a class="font-display-md text-headline-lg-mobile md:text-display-md text-primary dark:text-primary-fixed tracking-tight hover:scale-[0.98] transition-transform" href="<?= $base_url ?>index.php">
+                Olin's Cake.
+            </a>
+<div class="hidden md:flex items-center gap-8 nav-links-container">
+<div class="relative group">
+<a class="nav-link font-label-bold text-label-bold <?= ($current_page == 'index.php' || $current_page == '') ? 'text-primary font-bold border-b-2 border-tertiary-container pb-1 block' : 'text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 block pb-1' ?>" href="<?= $base_url ?>index.php" data-target="beranda">Beranda</a>
+</div>
+<div class="relative group">
+<a class="nav-link font-label-bold text-label-bold <?= ($current_page == 'produk.php') ? 'text-primary font-bold border-b-2 border-tertiary-container pb-1 block' : 'text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 block pb-1' ?>" href="<?= $base_url ?>produk.php">Produk</a>
+</div>
+<div class="relative group">
+<a class="nav-link font-label-bold text-label-bold text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 block pb-1" href="<?= $base_url ?>index.php#cara-pesan" data-target="cara-pesan">Cara Pesan</a>
+</div>
+<div class="relative group">
+<a class="nav-link font-label-bold text-label-bold text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 block pb-1" href="<?= $base_url ?>index.php#tentang-kami" data-target="tentang-kami">Tentang Kami</a>
+</div>
+<div class="relative group">
+<a class="nav-link font-label-bold text-label-bold text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 block pb-1" href="<?= $base_url ?>index.php#hubungi-kami" data-target="hubungi-kami">Hubungi Kami</a>
+</div>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Dropdown toggle logic untuk Beranda
-    const berandaDropdown = document.getElementById('berandaDropdown');
-    const berandaMenu = document.getElementById('berandaMenu');
-    
-    if (berandaDropdown && berandaMenu) {
-        berandaDropdown.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            berandaMenu.classList.toggle('show');
+    const isIndexPage = window.location.pathname.endsWith('index.php') || window.location.pathname.endsWith('/olinscake/');
+    if (!isIndexPage) return;
+
+
+    const navLinks = document.querySelectorAll('.nav-link[data-target]');
+    const sections = Array.from(navLinks).map(link => {
+        const target = link.getAttribute('data-target');
+        if (target === 'beranda') return { link, el: document.querySelector('main > section:first-of-type') || document.body };
+        return { link, el: document.getElementById(target) };
+    }).filter(s => s.el);
+
+    function updateActiveLink() {
+        let currentHash = window.location.hash;
+        
+        const activeClasses = ['text-primary', 'font-bold', 'border-b-2', 'border-tertiary-container'];
+        const inactiveClasses = ['text-on-surface-variant', 'font-medium', 'hover:text-primary'];
+
+        navLinks.forEach(link => {
+            link.classList.remove(...activeClasses);
+            link.classList.add(...inactiveClasses);
         });
 
-        document.addEventListener('click', function(e) {
-            if (!berandaDropdown.contains(e.target) && !berandaMenu.contains(e.target)) {
-                berandaMenu.classList.remove('show');
+        if (currentHash) {
+            const activeLink = document.querySelector(`.nav-link[href$="${currentHash}"]`);
+            if (activeLink) {
+                activeLink.classList.remove(...inactiveClasses);
+                activeLink.classList.add(...activeClasses);
+                return;
             }
-        });
+        }
+
+        let currentSection = sections[0];
+
+        const scrollY = window.scrollY;
+
+        for (const section of sections) {
+            if (!section.el || section.el === document.body) continue;
+            const offsetTop = section.el.offsetTop - 150;
+            if (scrollY >= offsetTop) {
+                currentSection = section;
+            }
+        }
+
+        if (currentSection && currentSection.link) {
+            currentSection.link.classList.remove(...inactiveClasses);
+            currentSection.link.classList.add(...activeClasses);
+        }
     }
 
-    // Mobile menu logic
-    const mobileMenuBtn = document.getElementById('mobile-menu');
-    const navLinks = document.getElementById('nav-links');
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    window.addEventListener('hashchange', updateActiveLink);
     
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-        });
-    }
+    setTimeout(updateActiveLink, 100);
 });
 </script>
+<div class="flex items-center gap-4">
+<?php if (isset($_SESSION['id_pelanggan'])): ?>
+    <a class="hidden lg:block font-label-bold text-label-bold text-on-surface hover:text-primary transition-colors duration-200" href="<?= $base_url ?>pesanan_saya.php">Pesanan Saya</a>
+    <a class="hidden lg:block font-label-bold text-label-bold text-on-surface hover:text-primary transition-colors duration-200" href="<?= $base_url ?>auth/keluar.php">Logout</a>
+<?php else: ?>
+    <a class="hidden lg:block font-label-bold text-label-bold text-on-surface hover:text-primary transition-colors duration-200" href="<?= $base_url ?>auth/masuk.php">Masuk</a>
+<?php endif; ?>
+<a class="hidden sm:inline-flex items-center justify-center rounded-full border-[1.5px] border-primary bg-tertiary-fixed text-primary px-6 py-2.5 font-label-bold text-label-bold hover:bg-tertiary-fixed-dim transition-colors Active:scale-95 transition-transform" href="<?= $base_url ?>produk.php">
+                    Pesan Sekarang
+                </a>
+<a href="<?= $base_url ?>keranjang.php" class="text-primary dark:text-primary-fixed p-2 rounded-full hover:bg-surface-variant transition-colors relative group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full border-2 border-surface group-hover:border-surface-variant transition-colors"></span>
+</a>
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
