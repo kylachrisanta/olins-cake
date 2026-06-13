@@ -79,10 +79,10 @@ while ($row = $res->fetch_assoc()) {
                                 <button type="submit" class="btn-remove" onclick="return confirm('Hapus item ini dari keranjang?')"><i class="fas fa-trash-alt"></i> Hapus</button>
                             </form>
                             
-                            <div class="qty-control" style="margin:0; gap:5px;">
-                                <button type="button" class="qty-btn btn-min" style="width:30px; height:30px; font-size:14px;"><i class="fas fa-minus"></i></button>
-                                <input type="number" class="qty-input" value="<?= $item['jumlah'] ?>" min="1" readonly style="width:40px; font-size:16px;">
-                                <button type="button" class="qty-btn btn-plus" style="width:30px; height:30px; font-size:14px;"><i class="fas fa-plus"></i></button>
+                            <div class="qty-control" style="margin:0; gap:5px; display:flex; align-items:center;">
+                                <button type="button" class="qty-btn btn-min" style="width:30px; height:30px; font-size:14px; border-radius:50%; border:1px solid #ccc; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;"><i class="fas fa-minus"></i></button>
+                                <input type="text" class="qty-input" value="<?= $item['jumlah'] ?>" readonly style="width:40px; font-size:16px; text-align:center; border:none; background:transparent; font-weight:bold; padding:0; outline:none;">
+                                <button type="button" class="qty-btn btn-plus" style="width:30px; height:30px; font-size:14px; border-radius:50%; border:1px solid #ccc; background:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;"><i class="fas fa-plus"></i></button>
                             </div>
                         </div>
                     </div>

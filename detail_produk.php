@@ -2,6 +2,11 @@
 session_start();
 require_once 'koneksi.php';
 
+if (!isset($_SESSION['id_pelanggan'])) {
+    header("Location: auth/masuk.php");
+    exit;
+}
+
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     header("Location: produk.php");
     exit;

@@ -115,8 +115,8 @@ $pelanggan = $stmt_user->get_result()->fetch_assoc();
 
                             <div class="form-group">
                                 <label>Tanggal Pengiriman</label>
-                                <input type="date" name="tanggal_pengiriman" class="form-control" required min="<?= date('Y-m-d', strtotime('+2 days')) ?>">
-                                <small style="color:#666;">Minimal pemesanan H-2.</small>
+                                <input type="date" name="tanggal_pengiriman" class="form-control" required min="<?= date('Y-m-d', strtotime('+3 days')) ?>">
+                                <small style="color:#666;">Minimal pemesanan H-3.</small>
                             </div>
                             <div class="form-group">
                                 <label>Waktu Pengiriman / Pengambilan</label>

@@ -186,32 +186,49 @@ $base_url = '/olinscake/';
 </div>
 </div>
 </section>
-<section class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-section-padding bg-surface-container-low rounded-xl mx-4 md:mx-auto">
-<div class="text-center mb-12">
-<h2 class="font-display-md text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Mengapa Memilih Kami?</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Kami berkomitmen memberikan kualitas terbaik dari dapur kami ke meja makan Anda.</p>
+<section class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-section-padding bg-surface-container-low rounded-xl mx-4 md:mx-auto" id="tentang-kami">
+<div class="grid md:grid-cols-2 gap-16 items-center mb-16 px-4 md:px-8">
+<div class="relative order-2 md:order-1">
+<div class="aspect-square rounded-[3rem] overflow-hidden border-2 border-outline-variant tactile-shadow relative z-10">
+<img alt="Olin's Cake Kitchen" class="w-full h-full object-cover" src="assets/images/kyliee-sweet.jpeg">
 </div>
-<div class="grid md:grid-cols-3 gap-gutter">
+<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-fixed rounded-full -z-0"></div>
+<div class="absolute -top-6 -left-6 w-24 h-24 border-[1.5px] border-primary rounded-full z-20 flex items-center justify-center bg-surface rotate-12">
+<span class="font-display-md text-lg text-primary text-center leading-tight">Since<br>2020</span>
+</div>
+</div>
+<div class="order-1 md:order-2">
+<h2 class="font-display-md text-headline-lg-mobile md:text-display-md text-primary mb-6">Tentang Kami</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+    Olin's Cake adalah usaha kue artisan rumahan yang lahir dari passion dan cinta. Dengan sistem pre-order eksklusif, kami memastikan setiap produk mendapatkan sentuhan personal dan perhatian penuh untuk hari spesial Anda.
+</p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+    Kami memegang teguh komitmen terhadap kebersihan, kesegaran bahan baku, dan kualitas tanpa kompromi. Tanpa pengawet dan dibuat dengan resep keluarga, setiap gigitan adalah bukti dedikasi kami untuk kepuasan Anda.
+</p>
+</div>
+</div>
+
+<div class="grid md:grid-cols-3 gap-gutter px-4 md:px-8">
 <div class="bg-surface-container-lowest p-card-padding rounded-lg border border-outline-variant tactile-shadow hover:-translate-y-2 transition-transform duration-300 group">
-<div class="w-14 h-14 rounded-full bg-tertiary-fixed flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
-</div>
-<h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-2">Bahan Segar &amp; Premium</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Kami hanya menggunakan bahan baku berkualitas tinggi dan segar setiap harinya tanpa pengawet.</p>
-</div>
-<div class="bg-surface-container-lowest p-card-padding rounded-lg border border-outline-variant tactile-shadow hover:-translate-y-2 transition-transform duration-300 group mt-0 md:mt-8">
 <div class="w-14 h-14 rounded-full bg-nastar-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">cake</span>
 </div>
-<h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-2">Resep Autentik</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Kombinasi resep rahasia keluarga dan teknik modern menghasilkan rasa yang tak terlupakan.</p>
+<h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-2">Dibuat Fresh Sesuai Pesanan</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Setiap pesanan baru akan diproses dan dipanggang khusus untuk menjaga kesegaran optimal saat dinikmati.</p>
+</div>
+<div class="bg-surface-container-lowest p-card-padding rounded-lg border border-outline-variant tactile-shadow hover:-translate-y-2 transition-transform duration-300 group mt-0 md:mt-8">
+<div class="w-14 h-14 rounded-full bg-tertiary-fixed flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-2">Bahan Berkualitas</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Hanya menggunakan bahan baku premium dan resep autentik pilihan, menghasilkan rasa luar biasa di setiap gigitan.</p>
 </div>
 <div class="bg-surface-container-lowest p-card-padding rounded-lg border border-outline-variant tactile-shadow hover:-translate-y-2 transition-transform duration-300 group mt-0 md:mt-16">
 <div class="w-14 h-14 rounded-full bg-brownie-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
 <span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
 </div>
 <h3 class="font-headline-lg text-headline-lg-mobile text-primary mb-2">Pengiriman Aman</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Dikemas dengan standar tinggi memastikan kue sampai di tangan Anda dalam kondisi sempurna.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Dikemas rapi dengan standar keamanan tinggi memastikan kue cantikmu tiba dalam kondisi sempurna.</p>
 </div>
 </div>
 </section>
@@ -239,12 +256,7 @@ $base_url = '/olinscake/';
 <p class="font-label-bold text-label-bold text-tertiary-container">Rp 85.000</p>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Cokelat premium yang lumer di mulut dengan tekstur padat dan crust yang renyah di atasnya.</p>
-<div class="flex gap-3 mt-auto">
-<a href="<?= $base_url ?>produk.php" class="flex-1 rounded-full border border-primary px-4 py-2 font-label-bold text-label-bold text-primary hover:bg-surface-variant transition-colors text-center">Detail</a>
-<a href="<?= $base_url ?>produk.php" class="flex-none rounded-full border-[1.5px] border-primary bg-primary text-on-primary w-12 h-12 flex items-center justify-center hover:scale-95 transition-transform">
-<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
-</a>
-</div>
+<!-- preview buttons removed -->
 </div>
 </div>
 <div class="group bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden tactile-shadow hover:-translate-y-1 transition-transform duration-300 flex flex-col">
@@ -260,12 +272,7 @@ $base_url = '/olinscake/';
 <p class="font-label-bold text-label-bold text-tertiary-container">Rp 120.000</p>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Kue kering lembut dengan isian selai nanas asli buatan sendiri. Manis dan asam yang seimbang.</p>
-<div class="flex gap-3 mt-auto">
-<a href="<?= $base_url ?>produk.php" class="flex-1 rounded-full border border-primary px-4 py-2 font-label-bold text-label-bold text-primary hover:bg-surface-variant transition-colors text-center">Detail</a>
-<a href="<?= $base_url ?>produk.php" class="flex-none rounded-full border-[1.5px] border-primary bg-primary text-on-primary w-12 h-12 flex items-center justify-center hover:scale-95 transition-transform">
-<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
-</a>
-</div>
+<!-- preview buttons removed -->
 </div>
 </div>
 <div class="group bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden tactile-shadow hover:-translate-y-1 transition-transform duration-300 flex flex-col">
@@ -278,12 +285,7 @@ $base_url = '/olinscake/';
 <p class="font-label-bold text-label-bold text-tertiary-container">Rp 135.000</p>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Gurihnya keju Edam premium yang berlimpah, renyah di luar dan lumer di dalam.</p>
-<div class="flex gap-3 mt-auto">
-<a href="<?= $base_url ?>produk.php" class="flex-1 rounded-full border border-primary px-4 py-2 font-label-bold text-label-bold text-primary hover:bg-surface-variant transition-colors text-center">Detail</a>
-<a href="<?= $base_url ?>produk.php" class="flex-none rounded-full border-[1.5px] border-primary bg-primary text-on-primary w-12 h-12 flex items-center justify-center hover:scale-95 transition-transform">
-<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
-</a>
-</div>
+<!-- preview buttons removed -->
 </div>
 </div>
 </div>
@@ -404,90 +406,137 @@ $base_url = '/olinscake/';
 </div>
 </div>
 </section>
-<section class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-section-padding" id="tentang-kami">
-<div class="grid md:grid-cols-2 gap-16 items-center">
-<div class="relative order-2 md:order-1">
-<div class="aspect-square rounded-[3rem] overflow-hidden border-2 border-outline-variant tactile-shadow relative z-10">
-<img alt="Olin, Founder of Olin's Cake" class="w-full h-full object-cover" src="assets/images/kyliee-sweet.jpeg">
-</div>
-<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-fixed rounded-full -z-0"></div>
-<div class="absolute -top-6 -left-6 w-24 h-24 border-[1.5px] border-primary rounded-full z-20 flex items-center justify-center bg-surface rotate-12">
-<span class="font-display-md text-lg text-primary text-center leading-tight">Since<br>2020</span>
-</div>
-</div>
-<div class="order-1 md:order-2">
-<h2 class="font-display-md text-headline-lg-mobile md:text-display-md text-primary mb-6">Kisah Di Balik Dapur Kami</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
-                        Berawal dari hobi membuat kue kering untuk keluarga di hari raya, Olin's Cake perlahan tumbuh menjadi dapur kreasi yang menyajikan berbagai pilihan kue premium untuk setiap momen istimewa Anda.
-                    </p>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8"></p></div></div></section><!-- Banner CTA Section -->
-<section class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop mb-16">
-    <div class="bg-[#271310] rounded-[40px] py-16 px-8 text-center flex flex-col items-center space-y-6">
-        <h2 class="font-display-md text-headline-lg-mobile md:text-display-md text-on-primary">Dibuat Fresh untuk Momen Spesialmu</h2>
-        <p class="font-body-lg text-body-lg text-on-primary opacity-80 max-w-2xl">
-            Pesan sekarang untuk pengiriman besok. Slot harian kami terbatas untuk menjaga kualitas.
-        </p>
-        <a href="<?= $base_url ?>produk.php" class="inline-flex items-center justify-center rounded-full bg-tertiary-fixed text-primary px-10 py-4 font-label-bold text-label-bold hover:bg-tertiary-fixed-dim transition-colors">
-            Mulai Pesan
-        </a>
-    </div>
-</section>
+<!-- Kisah di Balik Dapur Kami removed (merged into Tentang Kami) -->
 
-<section class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop mb-32"><div class="flex flex-col items-center gap-12">
+<section id="testimoni" class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop mb-32"><div class="flex flex-col items-center gap-12">
     <div class="text-center">
         <h2 class="font-display-md text-headline-lg-mobile md:text-display-md text-primary mb-4">Apa Kata Mereka?</h2>
         <p class="font-body-lg text-body-lg text-on-surface-variant">Cerita manis dari para penikmat setia Olin's Cake.</p>
     </div>
 
-    <div class="relative w-full max-w-2xl h-[450px] md:h-[500px] flex items-center justify-center">
-        <div class="absolute w-full h-full bg-surface-container-low rounded-[40px] p-12 md:p-20 text-center border border-outline-variant tactile-shadow transition-all duration-500 scale-[0.9] -translate-y-8 opacity-40 z-10">
-            <div class="absolute top-10 left-10 opacity-10"><span class="material-symbols-outlined text-9xl">format_quote</span></div>
-            <div class="relative z-10">
-                <p class="font-display-md text-2xl md:text-3xl text-primary mb-8 leading-relaxed italic">"Packagingnya sangat mewah, cocok untuk hantaran. Saya pesan untuk kado ulang tahun teman dan mereka sangat menyukainya!"</p>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-[2px] bg-tertiary-container mb-4"></div>
-                    <p class="font-headline-lg text-xl text-primary">Santi K.</p>
-                    <p class="font-body-md text-on-surface-variant">Pelanggan Baru</p>
+    <div class="relative w-full max-w-3xl overflow-hidden px-10 py-6" id="testimonial-slider">
+        <div class="flex transition-transform duration-500 ease-in-out" id="testimonial-track">
+            <!-- Slide 1 -->
+            <div class="w-full flex-shrink-0 px-4">
+                <div class="bg-surface-container-lowest rounded-3xl p-8 md:p-12 text-center border border-outline-variant tactile-shadow relative mt-6">
+                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full overflow-hidden border-4 border-surface shadow-sm bg-surface-container-highest flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-outline">person</span>
+                    </div>
+                    <div class="flex justify-center text-[#FFB74D] mb-4 mt-6">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="font-body-lg text-lg text-on-surface-variant mb-6 italic">"Packagingnya sangat mewah, cocok untuk hantaran. Saya pesan untuk kado ulang tahun teman dan mereka sangat menyukainya!"</p>
+                    <p class="font-headline-lg text-xl text-primary mb-1">Santi K.</p>
+                    <p class="font-body-md text-sm text-outline">Pelanggan Baru</p>
                 </div>
             </div>
-        </div>
+            
+            <!-- Slide 2 -->
+            <div class="w-full flex-shrink-0 px-4">
+                <div class="bg-surface-container-lowest rounded-3xl p-8 md:p-12 text-center border border-outline-variant tactile-shadow relative mt-6">
+                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full overflow-hidden border-4 border-surface shadow-sm bg-surface-container-highest flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-outline">person</span>
+                    </div>
+                    <div class="flex justify-center text-[#FFB74D] mb-4 mt-6">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="font-body-lg text-lg text-on-surface-variant mb-6 italic">"Nastar premium yang lumer di mulut, favorit keluarga! Selai nanasnya terasa asli dan tidak terlalu manis, pas banget di lidah."</p>
+                    <p class="font-headline-lg text-xl text-primary mb-1">Budi S.</p>
+                    <p class="font-body-md text-sm text-outline">Pecinta Kue Kering</p>
+                </div>
+            </div>
 
-        <div class="absolute w-full h-full bg-surface-container-low rounded-[40px] p-12 md:p-20 text-center border border-outline-variant tactile-shadow transition-all duration-500 scale-[0.95] -translate-y-4 opacity-70 z-20">
-            <div class="absolute top-10 left-10 opacity-10"><span class="material-symbols-outlined text-9xl">format_quote</span></div>
-            <div class="relative z-10">
-                <p class="font-display-md text-2xl md:text-3xl text-primary mb-8 leading-relaxed italic">"Nastar premium yang lumer di mulut, favorit keluarga! Selai nanasnya terasa asli dan tidak terlalu manis, pas banget di lidah."</p>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-[2px] bg-tertiary-container mb-4"></div>
-                    <p class="font-headline-lg text-xl text-primary">Budi S.</p>
-                    <p class="font-body-md text-on-surface-variant">Pecinta Kue Kering</p>
+            <!-- Slide 3 -->
+            <div class="w-full flex-shrink-0 px-4">
+                <div class="bg-surface-container-lowest rounded-3xl p-8 md:p-12 text-center border border-outline-variant tactile-shadow relative mt-6">
+                    <div class="absolute -top-8 left-1/2 -translate-x-1/2 w-16 h-16 rounded-full overflow-hidden border-4 border-surface shadow-sm bg-surface-container-highest flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-outline">person</span>
+                    </div>
+                    <div class="flex justify-center text-[#FFB74D] mb-4 mt-6">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+                    </div>
+                    <p class="font-body-lg text-lg text-on-surface-variant mb-6 italic">"Browniesnya beneran seenak itu! Teksturnya pas, cokelatnya kerasa premium banget dan gak bikin eneg. Packagingnya juga cantik."</p>
+                    <p class="font-headline-lg text-xl text-primary mb-1">Amanda T.</p>
+                    <p class="font-body-md text-sm text-outline">Pelanggan Setia</p>
                 </div>
             </div>
         </div>
-
-        <div class="absolute w-full h-full bg-surface-container-low rounded-[40px] p-12 md:p-20 text-center border border-outline-variant tactile-shadow transition-all duration-500 z-30 hover:-translate-y-2 cursor-pointer group">
-            <div class="absolute top-10 left-10 opacity-10"><span class="material-symbols-outlined text-9xl">format_quote</span></div>
-            <div class="relative z-10">
-                <p class="font-display-md text-2xl md:text-3xl text-primary mb-8 leading-relaxed italic">"Browniesnya beneran seenak itu! Teksturnya pas, cokelatnya kerasa premium banget dan gak bikin eneg. Packagingnya juga cantik, cocok buat dikasih ke orang."</p>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-[2px] bg-tertiary-container mb-4"></div>
-                    <p class="font-headline-lg text-xl text-primary">Amanda T.</p>
-                    <p class="font-body-md text-on-surface-variant">Pelanggan Setia</p>
-                </div>
-            </div>
-            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span class="font-label-bold text-sm text-tertiary flex items-center gap-2">
-                    Klik untuk testimoni selanjutnya <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                </span>
-            </div>
-        </div>
+        
+        <!-- Controls -->
+        <button id="prev-slide" class="absolute top-1/2 left-2 -translate-y-1/2 bg-surface text-primary w-10 h-10 rounded-full border border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors z-10">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button id="next-slide" class="absolute top-1/2 right-2 -translate-y-1/2 bg-surface text-primary w-10 h-10 rounded-full border border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors z-10">
+            <span class="material-symbols-outlined">chevron_right</span>
+        </button>
     </div>
 
-    <div class="flex gap-3">
-        <div class="w-3 h-3 rounded-full bg-primary"></div>
-        <div class="w-3 h-3 rounded-full bg-outline-variant"></div>
-        <div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+    <div class="flex gap-2 mt-2" id="testimonial-dots">
+        <button class="w-3 h-3 rounded-full bg-primary dot-indicator" data-index="0"></button>
+        <button class="w-3 h-3 rounded-full bg-outline-variant dot-indicator" data-index="1"></button>
+        <button class="w-3 h-3 rounded-full bg-outline-variant dot-indicator" data-index="2"></button>
     </div>
 </div></section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('testimonial-track');
+    const slides = track.children;
+    const nextButton = document.getElementById('next-slide');
+    const prevButton = document.getElementById('prev-slide');
+    const dots = document.querySelectorAll('.dot-indicator');
+    
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function updateSlider() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+                dot.classList.remove('bg-outline-variant');
+                dot.classList.add('bg-primary');
+            } else {
+                dot.classList.remove('bg-primary');
+                dot.classList.add('bg-outline-variant');
+            }
+        });
+    }
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
+    });
+
+    prevButton.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlider();
+    });
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            currentIndex = parseInt(e.target.dataset.index);
+            updateSlider();
+        });
+    });
+    
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
+    }, 5000);
+});
+</script>
 
 <section class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop py-section-padding" id="hubungi-kami">
 <div class="bg-surface-container-low rounded-[3rem] p-card-padding md:p-16 border border-outline-variant tactile-shadow">

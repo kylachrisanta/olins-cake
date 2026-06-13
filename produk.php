@@ -1,6 +1,11 @@
-﻿<?php
+<?php
 session_start();
 require_once 'koneksi.php';
+
+if (!isset($_SESSION['id_pelanggan'])) {
+    header("Location: auth/masuk.php");
+    exit;
+}
 
 $kategori_aktif = isset($_GET['kategori']) ? $_GET['kategori'] : 'semua';
 

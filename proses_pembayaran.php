@@ -29,6 +29,13 @@ if ($metode_pengiriman === 'Kirim' && $jarak_km > 20) {
     exit;
 }
 
+$min_date = date('Y-m-d', strtotime('+3 days'));
+if ($tanggal_pengiriman < $min_date) {
+    $_SESSION['error'] = "Tanggal pengiriman minimal H-3 dari hari ini.";
+    header("Location: pembayaran.php");
+    exit;
+}
+
 $metode_pembayaran = $_POST['metode_pembayaran'];
 $upload_dir = 'assets/uploads/';
 if (!is_dir($upload_dir)) {
